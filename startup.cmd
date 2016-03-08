@@ -1,11 +1,10 @@
 @echo Off
-set APPLITAION_PATH=
 set DelayTime=10
 
 timeout %DelayTime%
 
-for %%* in (.) do set folder=%%~nx*
-set logfile=%folder%_Data\output_log.txt
+for %%* in (.) do set appname=%%~nx*
+set logfile=%appname%_Data\output_log.txt
 SETLOCAL enabledelayedexpansion
 for /L %%i in (10,-1,1) do (
 		call set /A j=%%i+1
@@ -15,5 +14,5 @@ if exist %logfile% move /Y %logfile% %logfile%_1
 ENDLOCAL
 
 taskkill /f /IM explorer.exe
-%APPLITAION_PATH%
+%appname%.exe
 Start explorer.exe
