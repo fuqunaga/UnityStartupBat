@@ -14,5 +14,5 @@ if exist %logfile% move /Y %logfile% %logfile%_1
 ENDLOCAL
 
 taskkill /f /IM explorer.exe
-%appname%.exe
+%appname%.exe -logFile %appname%_Data\output_log.txt
 Start explorer.exe
