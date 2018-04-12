@@ -1,5 +1,14 @@
 @echo Off
 set DelayTime=10
+set Minimize=FALSE
+set KillExplorer=FALSE
+
+if %Minimize%==TRUE (
+ if not "%~0"=="%~dp0.\%~nx0" (
+      start /min cmd /c,"%~dp0.\%~nx0" %*
+      exit
+ )
+)
 
 timeout %DelayTime%
 
@@ -12,7 +21,9 @@ for /L %%i in (10,-1,1) do (
 		)
 if exist %logfile% move /Y %logfile% %logfile%_1
 ENDLOCAL
+ 
+if %KillExplorer%==TRUE ( taskkill /f /IM explorer.exe )
 
-taskkill /f /IM explorer.exe
-%appname%.exe
-Start explorer.exe
+%appname%.exe -logFile %appname%_Data\output_log.txt
+
+if %KillExplorer%==TRUE ( Start explorer.exe )
