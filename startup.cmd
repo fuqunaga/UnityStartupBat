@@ -1,7 +1,7 @@
 @echo Off
 set DelayTime=10
-set Minimize=TRUE
-set KillExplorer=TRUE
+set Minimize=FALSE
+set KillExplorer=FALSE
 
 if %Minimize%==TRUE (
  if not "%~0"=="%~dp0.\%~nx0" (
