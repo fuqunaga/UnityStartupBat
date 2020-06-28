@@ -26,4 +26,4 @@ if %KillExplorer%==TRUE ( taskkill /f /IM explorer.exe )
 
 %appname%.exe -logFile %appname%_Data\output_log.txt
 
-if %KillExplorer%==TRUE ( Start explorer.exe )
+if %KillExplorer%==TRUE ( C:\Windows\explorer.exe )
